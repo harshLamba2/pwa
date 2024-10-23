@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'; // Importing the CSS file for styles
 
-function App() {
+const App = () => {
+  const [number, setNumber] = useState(0);
+
+  const handleAdd = () => {
+    setNumber(number + 1);
+  };
+
+  const handleSubtract = () => {
+    setNumber(number - 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="number-manipulator-container">
+      <h1>Number Manipulator</h1>
+      <h2 className="number-display">{number}</h2>
+      <div className="button-group">
+        <button onClick={handleAdd}>Add</button>
+        <button onClick={handleSubtract}>Subtract</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
